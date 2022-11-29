@@ -165,7 +165,7 @@ public class PanelTienda extends javax.swing.JPanel {
             total = MoverController.getTienda().getPresupuesto();
 
             if ((total - salarios) < 0) {
-                JOptionPane.showMessageDialog(null, "El presupuesto no puede ser menor que 0");
+                throw new ProgramExceptions(10);
             } else {
                 int filas = UpdateController.updatePresupuesto(TablaController.getTotalSalario(MoverController.getTienda().getId()), MoverController.getTienda().getId());
                 JOptionPane.showMessageDialog(null, "Filas afectadas: " + filas);

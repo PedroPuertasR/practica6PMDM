@@ -56,6 +56,9 @@ public class ProgramExceptions extends RuntimeException{
             case 9:
                 this.msg = "El DNI no es válido";
                 break;
+            case 10:
+                this.msg = "El presupuesto no puede ser menor que 0";
+                break;
             default:
                 this.msg = "Error en el programa";
         }
