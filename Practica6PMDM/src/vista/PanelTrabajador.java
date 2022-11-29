@@ -191,7 +191,7 @@ public class PanelTrabajador extends javax.swing.JPanel {
 
                 fcFoto.setVisible(false);
             } else {
-                JOptionPane.showMessageDialog(null, "No has seleccionado ningún archivo");
+                throw new ProgramExceptions(11);
             }
 
         } catch (ProgramExceptions ex) {

@@ -59,6 +59,9 @@ public class ProgramExceptions extends RuntimeException{
             case 10:
                 this.msg = "El presupuesto no puede ser menor que 0";
                 break;
+            case 11:
+                this.msg = "No ha seleccionado la foto";
+                break;
             default:
                 this.msg = "Error en el programa";
         }
