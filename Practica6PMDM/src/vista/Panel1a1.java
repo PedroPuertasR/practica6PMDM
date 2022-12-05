@@ -9,8 +9,10 @@ import controlador.LoginController;
 import controlador.MoverController;
 import controlador.ProgramExceptions;
 import controlador.TablaController;
+import controlador.UpdateController;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import modelo.Editorial;
 import modelo.Libro;
 
@@ -115,6 +117,10 @@ public class Panel1a1 extends javax.swing.JPanel {
         tfId = new javax.swing.JTextField();
         tfNombre = new javax.swing.JTextField();
         tfCif = new javax.swing.JTextField();
+        btnModi = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
+
+        pnl1a1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -123,6 +129,8 @@ public class Panel1a1 extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jList);
 
+        pnl1a1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 12, 353, 105));
+
         btnAnterior.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btnAnterior.setText("←");
         btnAnterior.addActionListener(new java.awt.event.ActionListener() {
@@ -130,6 +138,7 @@ public class Panel1a1 extends javax.swing.JPanel {
                 btnAnteriorActionPerformed(evt);
             }
         });
+        pnl1a1.add(btnAnterior, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 265, -1, -1));
 
         btnSiguiente.setText("→");
         btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
@@ -137,6 +146,7 @@ public class Panel1a1 extends javax.swing.JPanel {
                 btnSiguienteActionPerformed(evt);
             }
         });
+        pnl1a1.add(btnSiguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(281, 267, -1, -1));
 
         btnPrimero.setText("|<");
         btnPrimero.addActionListener(new java.awt.event.ActionListener() {
@@ -144,6 +154,7 @@ public class Panel1a1 extends javax.swing.JPanel {
                 btnPrimeroActionPerformed(evt);
             }
         });
+        pnl1a1.add(btnPrimero, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 267, -1, -1));
 
         btnUltimo.setText(">|");
         btnUltimo.addActionListener(new java.awt.event.ActionListener() {
@@ -151,71 +162,35 @@ public class Panel1a1 extends javax.swing.JPanel {
                 btnUltimoActionPerformed(evt);
             }
         });
+        pnl1a1.add(btnUltimo, new org.netbeans.lib.awtextra.AbsoluteConstraints(342, 267, -1, -1));
 
         lblId.setText("ID Editorial:");
+        pnl1a1.add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 137, -1, -1));
 
         lblNombre.setText("Nombre:");
+        pnl1a1.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 175, -1, -1));
 
         lblCif.setText("CIF:");
+        pnl1a1.add(lblCif, new org.netbeans.lib.awtextra.AbsoluteConstraints(104, 211, -1, -1));
+        pnl1a1.add(tfId, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 135, 197, -1));
+        pnl1a1.add(tfNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 173, 197, -1));
+        pnl1a1.add(tfCif, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 209, 197, -1));
 
-        javax.swing.GroupLayout pnl1a1Layout = new javax.swing.GroupLayout(pnl1a1);
-        pnl1a1.setLayout(pnl1a1Layout);
-        pnl1a1Layout.setHorizontalGroup(
-            pnl1a1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl1a1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnl1a1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblCif)
-                    .addComponent(lblId)
-                    .addComponent(lblNombre)
-                    .addGroup(pnl1a1Layout.createSequentialGroup()
-                        .addComponent(btnPrimero)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAnterior)))
-                .addGroup(pnl1a1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl1a1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSiguiente)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnUltimo)
-                        .addContainerGap())
-                    .addGroup(pnl1a1Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(pnl1a1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                            .addComponent(tfCif)
-                            .addComponent(tfId))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(pnl1a1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-        pnl1a1Layout.setVerticalGroup(
-            pnl1a1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnl1a1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(pnl1a1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblId)
-                    .addComponent(tfId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(pnl1a1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombre)
-                    .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(pnl1a1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCif)
-                    .addComponent(tfCif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addGroup(pnl1a1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAnterior)
-                    .addComponent(btnSiguiente)
-                    .addComponent(btnPrimero)
-                    .addComponent(btnUltimo))
-                .addContainerGap())
-        );
+        btnModi.setText("Modificar");
+        btnModi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModiActionPerformed(evt);
+            }
+        });
+        pnl1a1.add(btnModi, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 267, -1, -1));
+
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
+        pnl1a1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, -1, 21));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -281,9 +256,53 @@ public class Panel1a1 extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnPrimeroActionPerformed
 
+    private void btnModiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModiActionPerformed
+
+        try {
+            tfCif.setEnabled(true);
+            tfNombre.setEnabled(true);
+            btnPrimero.setEnabled(false);
+            btnSiguiente.setEnabled(false);
+            btnAnterior.setEnabled(false);
+            btnUltimo.setEnabled(false);
+            btnModi.setVisible(false);
+            btnGuardar.setVisible(true);
+        } catch (ProgramExceptions ex) {
+            ex.mostrarError();
+        }
+    }//GEN-LAST:event_btnModiActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        try {
+            int id = Integer.parseInt(tfId.getText());
+
+            int filas = UpdateController.updateEditorial(tfCif.getText(),
+                    tfNombre.getText(), id);
+
+            JOptionPane.showMessageDialog(null, "Número de filas afectadas: "
+                    + filas);
+
+            tfCif.setEnabled(false);
+            tfNombre.setEnabled(false);
+            btnPrimero.setEnabled(true);
+            btnSiguiente.setEnabled(true);
+            btnAnterior.setEnabled(true);
+            btnUltimo.setEnabled(true);
+            btnGuardar.setVisible(false);
+            btnModi.setVisible(true);
+            MoverController.iniciar("SELECT * FROM EDITORIAL");
+            cargarDatos();
+            updateBotones();
+        } catch (ProgramExceptions ex) {
+            ex.mostrarError();
+        }
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnterior;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnModi;
     private javax.swing.JButton btnPrimero;
     private javax.swing.JButton btnSiguiente;
     private javax.swing.JButton btnUltimo;

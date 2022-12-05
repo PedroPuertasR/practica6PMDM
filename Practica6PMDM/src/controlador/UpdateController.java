@@ -42,6 +42,29 @@ public class UpdateController {
         }
     }
     
+    public static int updateEditorial(String cif, String nombre, int id){
+        try{
+            
+            con = GestionDB.getConnection();
+            
+            ps = con.prepareStatement("UPDATE EDITORIAL SET CIF = ?, "
+                    + "NOMBRE = ? WHERE ID = ?");
+            
+            ps.setString(1, cif);
+            ps.setString(2, nombre);
+            ps.setInt(3, id);
+            
+            int filas = ps.executeUpdate();
+            
+            return filas;
+            
+        }catch(SQLException ex){
+            ProgramExceptions err = new ProgramExceptions(6);
+            ProgramExceptions.guardarError(ex.getMessage());
+            throw err;
+        }
+    }
+    
     public static int updateTrabajador(String foto, String dni, String fecha, int idTr) throws ProgramExceptions{
         try{
             
